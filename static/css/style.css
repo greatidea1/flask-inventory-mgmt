@@ -1,0 +1,272 @@
+/* static/css/style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.logo {
+    width: 330px;
+    height: 250px;
+    margin-bottom: 10px;
+}
+
+.auth-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #f96302;
+    outline: none;
+}
+
+.btn, .search-btn {
+    background: #f96302;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn:hover, .search-btn:hover {
+    background: #e55d02;
+}
+
+.alert {
+    background: #ff6b6b;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logout-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-btn {
+    background: #f96302;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #e55d02;
+}
+
+.dashboard-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.search-container {
+    margin: 20px 0;
+}
+
+.search-container form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-container input,
+.search-container select {
+    flex: 1;
+}
+
+.search-container button {
+    width: auto;
+}
+
+.results-container {
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+tr:hover {
+    background: #f9f9f9;
+}
+
+/* Loading animation */
+.loading {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #f96302;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add transition effects */
+.auth-box, .dashboard-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.search-container .show-all-btn {
+    background: #4a90e2;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.search-container .show-all-btn:hover {
+    background: #357abd;
+}
+
+.search-container form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-container input,
+.search-container select {
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-container button {
+    white-space: nowrap;
+}
+
+/* Update existing styles for better form validation */
+input:invalid {
+    border-color: #ff6b6b;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group + .form-group {
+    margin-top: 20px;
+}
+
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #f96302;
+    font-size: 22px;
+}
+
+h2 {
+    color: #aa7513;
+    font-size: 18px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.export-pdf-btn {
+    background: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.export-pdf-btn:hover {
+    background: #218838;
+}
+
+.export-pdf-btn svg {
+    margin-right: 8px;
+}

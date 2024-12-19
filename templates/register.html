@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <h1>My Hardware Depot </h1> <br>
+    <h2>(Inventory Management)</h2>
+</head>
+<div class="auth-container">
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="HomeDepot Logo" class="logo">
+    <div class="auth-box">
+        <h2>Register</h2>
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            </div>
+            <br>
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+</div>
+{% endblock %}

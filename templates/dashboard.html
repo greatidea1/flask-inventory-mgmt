@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-container">
+    <h1>My Hardware Depot </h1> <br>
+    <h2>(Inventory Management)</h2>
+    <div class="search-container">
+        <form method="POST" action="{{ url_for('dashboard') }}">
+            <input type="text" name="search_term" placeholder="Search...">
+            <select name="table" required>
+                {% for table in tables %}
+                <option value="{{ table }}" {% if table == selected_table %}selected{% endif %}>{{ table }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" name="action" value="search" class="search-btn">Search</button>
+            <button type="submit" name="action" value="showall" class="show-all-btn">Show All Records</button>
+        </form>
+    </div>
+    
+    {% if results %}
+    <div class="results-container">
+        <table>
+            <thead>
+                <tr>
+                    {% for key in results[0].keys() %}
+                    <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    {% for value in row %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <div class="action-buttons">
+            <a href="{{ url_for('export_pdf') }}" class="export-pdf-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Export as PDF
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
